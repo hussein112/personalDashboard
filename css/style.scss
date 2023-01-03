@@ -244,6 +244,8 @@ main{
 
             .save{
                 width: 100%;
+                height: 40px;
+                padding: 2px;
                 margin-bottom: 10px;
                 @include flex(row);
             }
