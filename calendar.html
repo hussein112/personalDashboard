@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Hussein Khalil">
+    
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Calendar</title>
+
+
+</head>
+<body>
+    <div class="page">
+        <aside class="dashboard">
+            <div class="title">
+                <iconify-icon icon="material-symbols:calendar-month"></iconify-icon>
+                <h3>Calendar</h3>
+            </div>
+    
+            <div class="user">
+                <img src="images/user.jpg" alt="" class="profile">
+                <h3 class="name">Elissa Doe</h3>
+            </div>
+    
+    
+            <nav>
+                <a href="index.html">
+                    <p>Dashboard</p>
+                    <iconify-icon icon="ri:dashboard-3-line"></iconify-icon>
+                </a>
+                <a href="tasks.html">
+                    <p>Tasks</p>
+                    <iconify-icon icon="vaadin:tasks"></iconify-icon>
+                </a>
+                <a class="active" href="calendar.html">
+                    <p>Calendar</p>
+                    <iconify-icon icon="material-symbols:calendar-month"></iconify-icon>
+                </a>
+                <a href="settings.html">
+                    <p>Settings</p>
+                    <iconify-icon icon="material-symbols:settings"></iconify-icon>
+                </a>
+            </nav>
+        </aside>
+    
+    
+    
+    
+    
+    
+        <main>
+            <div class="quote">
+                <div class="container">
+                    <iconify-icon icon="fluent:full-screen-minimize-16-filled"></iconify-icon>
+                    <q>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto praesentium debitis enim velit aspernatur, non, consectetur, itaque ducimus asperiores vitae sit hic quaerat rerum? Aliquid voluptatibus sint necessitatibus assumenda ipsa.
+                    </q>
+                    <br><cite>- Hussein Khalil</cite>
+                </div>
+                
+            </div>
+            <!-- ./Quote -->
+    
+
+            <div class="section">
+                <div class="calendar">
+                    <div class="info">
+                        <form action="">
+                            <select id="month">
+                                <option value="January">January</option>
+                                <option value="February">February</option>
+                                <option value="March">March</option>
+                                <option value="April">April</option>
+                                <option value="May">May</option>
+                                <option value="June">June</option>
+                                <option value="July">July</option>
+                                <option value="August">August</option>
+                                <option value="September">September</option>
+                                <option value="October">October</option>
+                                <option value="November">November</option>
+                                <option value="December">December</option>
+                            </select>
+                            <select id="year">
+                                
+                            </select>
+                        </form>
+                        
+                        <div class="title">
+                            <label for="year" class="year"></label>
+                            <label for="month" class="month"></label>
+                            <span class="day"></span>
+                        </div>
+                    </div>
+                    <div class="days">
+                        <div class="week-days">
+                            <span>mon</span>
+                            <span>tue</span>
+                            <span>wed</span>
+                            <span>thu</span>
+                            <span>fri</span>
+                            <span>sat</span>
+                            <span>sun</span>
+                        </div>
+                        <div class="month-days"></div>
+                    </div>
+                </div>
+            </div>
+
+
+        </main>
+    </div>
+
+
+
+
+
+    <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+    <script src="js/settings.js" type="module"></script>
+    <script src="js/calendar.js"></script>
+
+</body>
+</html>

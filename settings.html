@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="hussein khalil">
+    
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Settings</title>
+
+
+</head>
+<body>
+    <div class="page">
+        <aside class="dashboard">
+            <div class="title">
+                <iconify-icon icon="material-symbols:settings"></iconify-icon>
+                <h3>Settings</h3>
+            </div>
+    
+            <div class="user">
+                <img src="images/user.jpg" alt="" class="profile">
+                <h3 class="name">Elissa Doe</h3>
+            </div>
+    
+    
+            <nav>
+                <a href="index.html">
+                    <p>Dashboard</p>
+                    <iconify-icon icon="ri:dashboard-3-line"></iconify-icon>
+                </a>
+                <a href="tasks.html">
+                    <p>Tasks</p>
+                    <iconify-icon icon="vaadin:tasks"></iconify-icon>
+                </a>
+                <a href="calendar.html">
+                    <p>Calendar</p>
+                    <iconify-icon icon="material-symbols:calendar-month"></iconify-icon>
+                </a>
+                <a class="active" href="settings.html">
+                    <p>Settings</p>
+                    <iconify-icon icon="material-symbols:settings"></iconify-icon>
+                </a>
+            </nav>
+        </aside>
+    
+    
+    
+    
+    
+    
+        <main>
+            <div class="quote">
+                <div class="container">
+                    <iconify-icon icon="fluent:full-screen-minimize-16-filled"></iconify-icon>
+                    <q>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto praesentium debitis enim velit aspernatur, non, consectetur, itaque ducimus asperiores vitae sit hic quaerat rerum? Aliquid voluptatibus sint necessitatibus assumenda ipsa.
+                    </q>
+                    <br><cite>- Hussein Khalil</cite>
+                </div>
+            </div>
+                
+            <!-- ./Quote -->
+    
+
+            
+
+            
+
+
+            <div class="horizontal-section">
+                <div class="edit-quote">
+                    <h2 class="h-section-title">Configure Quotes</h2>
+                    <form action="">
+                        <div class="q-category form-section">
+                            <label for="category">Chosse the quote category: </label>
+                            <select name="" id="category">
+                                <option value="" class="movies">Movies</option>
+                                <option value="" class="novels">Novels</option>
+                                <option value="" class="online">Online</option>
+                            </select>
+                        </div>
+                        <div class="q-timer form-section">
+                            <label for="timer">New Quote Every (In Hours): </label>
+                            <input type="number" name="" id="timer">
+                        </div>
+                        
+                        <div class="confirm">
+                            <button class="btn">confirm</button>
+                        </div>
+                    </form>
+                </div>
+                <!-- ./Edit Quote -->
+                <div class="theme">
+                    <h2 class="h-section-title">Change Theme</h2>
+                    <div class="recommanded">
+                        <h3>Recomanded</h3>
+                        <div class="combinations">
+                            <div class="combination">
+                                <div class="c c-1" data-color="#ddd"></div>
+                                <div class="c c-2" data-color="#ffffff"></div>
+                                <div class="c c-3" data-color="#a29bfe"></div>
+                                <div class="c c-4" data-color="#512A2A"></div>
+                            </div>
+                        </div>
+
+                        <button id="default">Reset To Defaults</button>
+                    </div>
+    
+                    <form class="custom">
+                        <h3>Custom</h3>
+                        <div class="input-group">
+                            <div class="color color-1">
+                                <label for="color1">Primary Color</label>
+                                <input data-n="primary" type="color" name="" id="color1" value="#000000">
+                            </div>
+                            <div class="color color-2">
+                                <label for="color2">Secondary Color</label>
+                                <input data-n="secondary" type="color" name="" id="" value="#000000">
+                            </div>
+    
+                            <div class="color color-3">
+                                <label for="color3">Tertiary Color</label>
+                                <input data-n="tertiary" type="color" name="" id="" value="#000000">
+                            </div>
+    
+                            <div class="color color-4">
+                                <label for="color4">Fourth Color</label>
+                                <input data-n="fourth" type="color" name="" id="" value="#000000">
+                            </div>
+    
+                            <div id="save-colors">
+                                <button class="btn">Save</button>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+                <!-- ./Edit Theme -->
+            </div>
+
+        </main>
+    </div>
+
+
+
+
+    <script src="js/settings.js" type="module"></script>
+    <script src="js/settingsPage.js" type="module"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+
+</body>
+</html>

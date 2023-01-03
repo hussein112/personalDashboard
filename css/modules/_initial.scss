@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&family=Pinyon+Script&display=swap');
+@import "normalize";
+
+/*************
+** Start Colors
+*
+**/
+$primaryColor: var(--primary);
+$secondaryColor: var(--secondary);
+$tertiaryColor: var(--tertiary);
+$fourth: var(--fourth);
+
+/**
+** End Colors
+*
+*************/
+
+
+
+
+
+
+/************************
+** Start Variable Styles
+*
+**/
+$transition: .3s;
+
+
+$fontSize: 1rem;
+$secondaryFont: $fontSize - 0.5;
+$importantFont: $fontSize + 1;
+$iconFont: $fontSize + 2;
+
+
+$vintageFont: 'Pinyon Script', cursive;
+
+
+$border: $fontSize - 0.7;
+$borderRadius: $fontSize - 0.65;
+
+
+/**
+** End Variable Styles
+*
+************************/
+
+
+
+
+/************************
+** Start General Sytling
+*
+**/
+:root {
+  --primary: #f1f5f9;
+  --secondary: #ffffff;
+  --tertiary: rgb(60, 138, 255);
+  --fourth: #292929;
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto Serif', serif;
+}
+
+
+html {
+  scroll-behavior: smooth;
+  direction: ltr;
+  font-size: 18px;
+}
+
+p{
+  font-size: 18px;
+}
+
+
+body{
+  background: $primaryColor;
+  font-size: $fontSize;
+}
+
+
+@keyframes animateSection{
+  0%{
+    opacity: .7;
+    transform: translateY(40px);
+  }
+
+  100%{
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.section{
+  min-height: 90vh;
+  padding: 20px;
+  margin: 10px auto;
+  animation: animateSection $transition ease-in-out both;
+}
+
+
+.horizontal-section{
+  padding: 20px;
+  margin: 10px auto;
+
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 20px;
+
+  animation: animateSection $transition ease-in-out both;
+}
+
+@media (max-width: 768px){
+  .horizontal-section{
+    padding: 5px;
+    margin: 5px auto;
+
+
+    grid-template-columns: repeat(auto-fill, minmax(206px, 1fr));
+    gap: 10px;
+  }
+}
+
+
+.section-title{
+  min-height: 10%;
+  color: $tertiaryColor;
+  display: grid;
+  place-items: center;
+}
+
+
+
+.h-section-title{
+  color: $tertiaryColor;
+  display: grid;
+  place-items: center;
+}
+
+
+
+
+
+// /* Small */
+// @media (min-width: 768px) {
+//   .container {
+//     width: 750px;
+//   }
+// }
+
+// /* Medium */
+// @media (min-width: 992px) {
+//   .container {
+//     width: 970px;
+//   }
+// }
+// /* Large */
+// @media (min-width: 1200px) {
+//   .container {
+//     width: 1170px;
+//   }
+// }
+
+// Container Width Update (because of the siderbar width)v
+@media (min-width: 768px) {
+  .container {
+    width: 510px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: 700px;
+  }
+}
+
+
+/* Large */
+@media (min-width: 1200px) {
+  .container {
+    width: 1000px;
+  }
+}
+
+
+input{
+  border: none;
+}
+
+
+a{
+  text-decoration: none;
+}
+
+
+ul{
+  list-style-type: none;
+}
+
+
+button,
+input[type=submit]{
+  cursor: pointer;
+  @extend .btn;
+}
+
+
+input[type=search],
+input[type=email],
+input[type=text]{
+  outline: none;
+  border: 2px solid;
+  border-radius: $borderRadius;
+  transition: $transition;
+  font-size: $fontSize;
+  padding: 5px;
+  &::placeholder{
+    opacity: 0.5;
+  }
+}
+
+
+@media (max-width: 767px){
+  iconify-icon{
+    font-size: $fontSize;
+  }
+}
+
+
+.container{
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+
+
+/**
+** End general Styles
+*
+************************/
+
+// <----------Btns>
+.btn{
+  text-decoration: none;
+  text-transform: capitalize;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: $borderRadius;
+  border: none;
+  font-size: $fontSize;
+  cursor: pointer;
+  
+
+  // Center text
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $tertiaryColor;
+  background-color: $primaryColor;
+  &:hover{
+      background-color: $fourth;
+      color: $primaryColor;
+      transition: $transition;
+  }
+}

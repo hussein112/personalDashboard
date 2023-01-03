@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Hussein Khalil">
+
+    <link rel="stylesheet" href="css/style.css">
+    <title>Tasks</title>
+</head>
+<body>
+    <div class="page">
+        <aside class="dashboard">
+            <div class="title">
+                <iconify-icon icon="vaadin:tasks"></iconify-icon>
+                <h3>Tasks</h3>
+            </div>
+    
+            <div class="user">
+                <img src="images/user.jpg" alt="" class="profile">
+                <h3 class="name">Elissa Doe</h3>
+            </div>
+    
+    
+            <nav>
+                <a href="index.html">
+                    <p>Dashboard</p>
+                    <iconify-icon icon="ri:dashboard-3-line"></iconify-icon>
+                </a>
+                <a class="active" href="tasks.html">
+                    <p>Tasks</p>
+                    <iconify-icon icon="vaadin:tasks"></iconify-icon>
+                </a>
+                <a href="calendar.html">
+                    <p>Calendar</p>
+                    <iconify-icon icon="material-symbols:calendar-month"></iconify-icon>
+                </a>
+                <a href="settings.html">
+                    <p>Settings</p>
+                    <iconify-icon icon="material-symbols:settings"></iconify-icon>
+
+                </a>
+            </nav>
+        </aside>
+    
+    
+    
+    
+    
+    
+        <main>
+            <div class="quote">
+                <div class="container">
+                    <iconify-icon icon="fluent:full-screen-minimize-16-filled"></iconify-icon>
+                    <q>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto praesentium debitis enim velit aspernatur, non, consectetur, itaque ducimus asperiores vitae sit hic quaerat rerum? Aliquid voluptatibus sint necessitatibus assumenda ipsa.
+                    </q>
+                    <br><cite>- Hussein Khalil</cite>
+                </div>
+                
+            </div>
+            <!-- ./Quote -->
+    
+    
+
+            <div class="section tasks">
+                <div class="tasks-wrapper container">
+                    <h2 class="section-title">Today Tasks</h2>
+                    <form action="" class="new-task">
+                        <input type="text" name="task" id="task" placeholder="Add New Task">
+                        <button>
+                            <span>+</span>
+                        </button>
+                    </form>
+
+
+                    <nav>
+                        <span>All</span>
+                        <span>Completed</span>
+                        <span>Pending</span>
+                        <span>Urgent</span>
+                    </nav>
+
+                    <!-- List of Tasks -->
+                    <ul>
+                        <li>
+                            <p class="title">Pay Phone Bills (500$)</p>
+                            <span class="edit">
+                                <iconify-icon icon="carbon:overflow-menu-horizontal"></iconify-icon>
+                            </span>
+                        </li>
+                        <li>
+                            <p class="title">Work Meeting</p>
+                            <span class="edit">
+                                <iconify-icon icon="carbon:overflow-menu-horizontal"></iconify-icon>
+                            </span>
+                        </li>
+                        <li>
+                            <p class="title">Go to ABC Gym</p>
+                            <span class="edit">
+                                <iconify-icon icon="carbon:overflow-menu-horizontal"></iconify-icon>
+                            </span>
+                        </li>
+                    </ul>
+
+
+                    <div class="view-all">
+                        <a href="" class="btn-normal">View All</a>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </main>
+    </div>
+
+
+
+
+
+    <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+    <script src="js/settings.js" type="module"></script>
+</body>
+</html>

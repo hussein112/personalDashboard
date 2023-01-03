@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Hussein Khalil">
+
+    <link rel="stylesheet" href="css/style.css">
+
+
+    <title>Dashboard</title>
+</head>
+<body>
+    
+
+    <div class="page">
+        <aside class="dashboard">
+            <div class="title">
+                <iconify-icon icon="ri:dashboard-3-line"></iconify-icon>
+                <h3>Dashboard</h3>
+            </div>
+    
+            <div class="user">
+                <img src="images/user.jpg" alt="" class="profile">
+                <h3 class="name">Elissa Doe</h3>
+            </div>
+    
+    
+            <nav>
+                <a class="active" href="index.html">
+                    <p>Dashboard</p>
+                    <iconify-icon icon="ri:dashboard-3-line"></iconify-icon>
+                </a>
+                <a href="tasks.html">
+                    <p>Tasks</p>
+                    <iconify-icon icon="vaadin:tasks"></iconify-icon>
+                </a>
+                <a href="calendar.html">
+                    <p>Calendar</p>
+                    <iconify-icon icon="material-symbols:calendar-month"></iconify-icon>
+                </a>
+                <a href="settings.html">
+                    <p>Settings</p>
+                    <iconify-icon icon="material-symbols:settings"></iconify-icon>
+
+                </a>
+            </nav>
+        </aside>
+    
+    
+    
+    
+    
+    
+        <main>
+            <div class="quote">
+                <div class="container">
+                    <iconify-icon icon="fluent:full-screen-minimize-16-filled"></iconify-icon>
+                    <q>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto praesentium debitis enim velit aspernatur, non, consectetur, itaque ducimus asperiores vitae sit hic quaerat rerum? Aliquid voluptatibus sint necessitatibus assumenda ipsa.
+                    </q>
+                    <br><cite>- Hussein Khalil</cite>
+                </div>
+            </div>
+            <!-- ./Quote -->
+
+            <div class="overview horizontal-section">
+                <div class="note">
+                    <h2 class="section-title">Quick Note</h2>
+                    <textarea name="note" id="" cols="30" rows="10" placeholder="Write your thoughts.."></textarea>
+                    <div class="save">
+                        <a href="" class="btn-normal">Save</a>
+                    </div>
+                </div>
+        
+                <div class="today-progress">
+                    <h2 class="section-title">Today Progress</h2>
+                    <div class="container">
+                        <div class="today-progress-chart">
+                            <div class="progress">
+                                <span class="bg"></span>
+                                <span class="value"></span>
+                            </div>
+                            
+                            <p class="percent"></p>
+                            <p class="label">Almost Done</p>
+                        </div>
+        
+                        <div class="average-today-progress-chart">
+                            <p>Average Monday Progress</p>
+                            <canvas id="todayAverageProgress">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+    
+            <!-- ./Today Progress -->
+    
+            <div class="section last-week-progress">
+                <h1 class="section-title">Last Week Progress</h1>
+                <div class="container">
+                    
+                    <div class="chart">
+                        <p>Last Week Progress</p>
+                        <canvas id="lastWeekProgress">
+                    </div>
+    
+                    <div class="notes">
+                        <ul>
+                            <li>You look more productive on Friday</li>
+                            <li>more progress needed in Sunday</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ./Last week progress -->
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/main.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+    <script src="js/settings.js" type="module"></script>
+
+</body>
+</html>

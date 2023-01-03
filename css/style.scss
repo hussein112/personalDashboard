@@ -1,0 +1,796 @@
+@use "modules/mixins" as *;
+
+
+.page{
+    display: flex;
+}
+
+
+aside{
+    min-width: 250px;
+    height: 100vh;
+
+
+    @include flex(column);
+    background: $secondaryColor;
+
+    // Current Page
+    .active{
+        background-color: $tertiaryColor;
+        color: $primaryColor;
+        &:hover{
+            background-color: $tertiaryColor;
+        }
+    }
+
+
+    .title{
+        @include flex(row);
+        flex: 10%;
+        width: 100%;
+        color: $tertiaryColor;
+        iconify-icon{
+            color: $fourth;
+        }
+
+        h3{
+            font-family: $vintageFont;
+            
+        }
+    }
+
+    @media (max-width: 768px) {
+        .title {
+          h3{
+            display: none;
+          }
+        }
+    }
+      
+
+    .user{
+        @include flex(row);
+        padding: 10px;
+        flex: 10%;
+        width: 100%;
+        color: $fourth;
+        box-shadow: 0 5px 10px $primaryColor;
+
+        img{
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+        }
+
+        @media (max-width: 768px) {
+            img{
+                width: 90%;
+                height: 50%;
+            }
+        }
+
+        h3{
+            font-family: $vintageFont;
+        }
+    }
+
+
+    @media (max-width: 768px) {
+        .user {
+            padding: 0;
+          h3{
+            display: none;
+          }
+        }
+    }
+
+
+    // Navigating Between Pages
+    nav{
+        flex: 80%;
+        width: 100%;
+
+        a{
+            @include flex("row");
+            flex-direction: row-reverse;
+            color: $fourth;
+            width: 100%;
+            height: 60px;
+            width: 85%;
+            border-radius: 15px;
+        
+            transition: $transition;
+
+
+            margin: auto;
+            margin-top: 20px;
+
+            &:hover{
+                background-color: $primaryColor;
+            }
+
+            iconify-icon{
+                font-size: 25px;
+            }
+
+            p{
+                width: 70%;
+                text-align: left;
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        nav {
+          p{
+            display: none;
+          }
+          a{
+            border-radius: 0%;
+            width: 100%;
+          }
+        }
+    }
+}
+
+
+@media (max-width: 768px) {
+    aside {
+      min-width: 50px;
+      width: 10%;
+    }
+}
+
+
+
+main{
+    width: 100%;
+    .quote{
+        position: relative;
+        border-radius: $borderRadius;
+        background-color: $secondaryColor;
+        margin: 20px auto;
+        padding: 10px 0;
+        width: 90%;
+
+        // Minimize Quote Button
+        iconify-icon{
+            float: right;
+
+            cursor: pointer;
+            transition: $transition;
+            color: $fourth;
+            &:hover{
+                scale: (1.5);
+            }
+        }
+
+        q{
+            color: $fourth;
+            clear: right;
+            &::before,
+            &::after{
+                font-weight: bold;
+                font-size: 1.5rem;
+            }
+        }
+
+
+        cite{
+            font-weight: bold;
+            color: $tertiaryColor;
+        }
+        
+        &::after,
+        &::before{
+            content: "";
+            position: absolute;
+            width: 2%;
+            height: 2px;
+            background-color: $tertiaryColor;
+            transition: $transition;
+        }
+
+
+        &::after{
+            right: 0;
+            bottom: 0;
+        }
+
+        &::before{
+            top:  0;
+        }
+
+        &:hover{
+            &::after,
+            &::before{
+                width: 50%;
+            }
+        }
+    }
+
+
+
+
+
+    // Index.html
+    .overview{
+        .note{
+            background: $secondaryColor;
+            border-radius: $borderRadius;
+            textarea{
+                width: calc(100% - (2 * 4px));
+                margin: 4px;    
+                padding: 5px;
+                resize: none;
+
+                background-color: $primaryColor;
+                border: 2px solid $tertiaryColor;
+
+                transition: $transition;
+
+
+                &::placeholder{
+                    color: $fourth;
+                    opacity: .5;
+                }
+
+                &:focus{
+                    outline-color: $tertiaryColor;
+                    box-shadow: 0 0 10px $primaryColor;
+                }
+            }
+
+
+            .save{
+                width: 100%;
+                margin-bottom: 10px;
+                @include flex(row);
+            }
+        }
+    
+        .today-progress{
+            background: $secondaryColor;
+            border-radius: $borderRadius;
+            min-height: 430px;
+            .container{
+                @include flex(row, wrap);
+                width: 100%;
+
+                .today-progress-chart{
+                    flex: 50%;
+                    @include flex(column);
+                    color: $fourth;
+                    
+
+                    .progress{
+                        position: relative;
+                        height: 20px;
+                        width: 100%;
+                        .value,
+                        .bg{
+                            position: absolute;
+                            height: 100%;
+                        }
+    
+                        .bg{
+                            width: 100%;
+                            background-color: $primaryColor;
+                            opacity: .7;
+                        }
+    
+                        .value{
+                            background-color: $tertiaryColor;
+                            z-index: 2;
+                            left: 0;
+                            transition: $transition + 1;
+                        }
+    
+    
+                        
+                    }
+                    .label{
+                        color: $fourth;
+                    }
+
+                    .percent{
+                        color: $fourth;
+                        transition: $transition + 2;
+                        animation: pop ($transition) ease-in forwards 2s;
+                        animation-play-state: paused;
+                    }
+                    
+                    @keyframes pop {
+                        0%{
+                            scale: 3;
+                        }
+
+                        100%{
+                            scale: 1;
+                        }
+                    }
+
+                }
+    
+                .average-today-progress-chart{
+                    flex: 50%;
+                    width: 100%;
+                    height: 100%;
+                    color: $fourth;
+                }
+            }
+            
+        }
+    }
+
+    @media (max-width: 768px) {
+        .overview{
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-column-gap: 10px;
+        }
+    }
+
+    .last-week-progress{
+        color: $fourth;
+        .chart{
+            min-height: 80%;
+        }
+
+        .notes{
+            height: 10%;
+            margin: auto;
+            width: 50%;
+            li{
+                color: $fourth;
+                list-style: lower-roman;
+            }
+        }
+    }
+
+    // ./Index.html
+
+
+    // Tasks.html
+    .tasks{
+        .tasks-wrapper{
+            border-radius: $borderRadius;
+            padding: 10px;
+            background-color: $secondaryColor;
+            
+           
+
+            .new-task{
+                margin: 10px 0;
+                position: relative;
+    
+                input{
+                    width: 96%;
+                    background-color: $secondaryColor;
+                    border-color: $primaryColor;
+
+                    &::placeholder{
+                        color: $fourth;
+                    }
+                }
+    
+                button{
+                    position: absolute;
+                    width: 5%;
+                    height: 100%;
+                    top: 0;
+                    right: 0;
+                    border-top-left-radius: 0;
+                    border-bottom-left-radius: 0;
+                    background-color: $primaryColor;
+                    color: $tertiaryColor;
+                }
+
+                @media (max-width: 768px) {
+                    button{
+                        width: 10%;
+                    }
+                }
+            }
+
+
+            nav{
+                @include flex(row, wrap);
+                max-width: 500px;
+                span{
+                    @include center();
+                    flex: calc(100% / 4 - 10px);
+                    cursor: pointer;
+                    padding: 10px;
+                    transition: $transition;
+                    position: relative;
+
+                    color: $fourth;
+
+                    &::after,
+                    &::before{
+                        content: "";
+                        position: absolute;
+                        width: 0;
+                        height: 2px;
+                        background: $tertiaryColor;
+                        transition: $transition;
+                    }
+                    &::after{
+                        bottom: 0;
+                        left: 0;
+                    }
+
+                    &::before{
+                        top: 0;
+                        right: 0;
+                    }
+
+                    &:hover{
+                        background-color: $primaryColor;
+                        &::after,
+                        &::before{
+                            width: 100%;
+                        }
+                    }
+                }
+            
+            }
+
+            // List of tasks
+            ul{
+                margin: 10px 0;
+                @include flex(column);
+                // Task
+                li{
+                    width: 100%;
+                    padding: 10px;
+                    position: relative;
+                    border-radius: $borderRadius;
+                    &:nth-child(2n + 1){
+                        background-color: $tertiaryColor;
+                    }
+
+                    p{
+                        color: $fourth;
+                        font-weight: bold;
+                    }
+
+                    span{
+                        cursor: pointer;
+                        iconify-icon{
+                            position: absolute;
+                            top: 50%;
+                            right: 5%;
+                            transform: translate(-5%, -50%);
+
+                            background-color: $primaryColor;
+                            color: $fourth;
+                            padding: 5px;
+                            border-radius: $borderRadius;
+                            transition: $transition;
+                            &:hover{
+                                scale: (1.1);
+                            }
+                        }
+                    }
+                }
+            }
+
+
+            .view-all{
+                width: 100%;
+                @include center();
+
+                @media (max-width: 768px) {
+                    .btn{
+                        width: 80%;
+                    }
+                }
+            }
+        }
+    }
+
+    // ./Tasks.html
+
+
+
+
+
+
+
+
+
+    // Settings.html
+
+    .edit-quote{
+        background-color: $secondaryColor;
+        border-radius: $borderRadius;
+        padding: 10px;
+        min-height: 450px;
+        form{
+            @include flex(column);
+            .form-section{
+                width: 100%;
+                @include flex(row, wrap);
+                margin: 10px 0;
+                box-shadow: 0 4px 10px $primaryColor;
+                padding: 10px 0;
+                border-radius: $borderRadius;
+            }
+
+            label{
+                width: 45%;
+                color: $fourth;
+            }
+
+            select{
+                width: 45%;
+                background-color: $primaryColor;
+                color: $tertiaryColor;
+                border-color: $tertiaryColor;
+                padding: 3px;
+            }
+
+
+            .q-timer{
+                label{
+                    width: 45%;
+                }
+                input{
+                    border:1px solid $tertiaryColor;
+                    outline: none;
+                    width: 45%;
+                }
+            }
+
+            .confirm{
+                width: 40%;
+                height: 40px;
+            }
+        }
+    }
+
+
+    .theme{
+        padding: 10px;
+        background-color: $secondaryColor;
+        border-radius: $borderRadius;
+        min-height: 450px;
+        @include flex(column);
+
+        
+        .recommanded{
+            text-align: center;
+            width: 100%;
+            height: 50%;
+            background-color: rgba(0, 0, 0, 0.1);
+            
+            h3{
+                color: $fourth;
+            }
+            .combinations{
+                width: 100%;
+                height: 70%;
+                @include flex(row, wrap);
+               
+                .combination{
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    grid-template-rows: repeat(2, 1fr);
+                    gap: 2px;
+                    width: 40%;
+                    height: 50%;
+                    cursor: pointer;
+                    margin: 0 5%;
+                    transition: $transition;
+                    &:hover{
+                        scale: (1.1);
+                    }
+
+
+                    .c{
+                        width: 100%;
+                        height: 100%;
+                    }
+    
+                    .c-1{
+                        background-color: #ddd;
+                    }
+                    .c-2{
+                        background-color: #ffffff;
+                    }
+                    .c-3{
+                        background-color: #a29bfe;
+                    }
+                    .c-4{
+                        background-color: #512A2A;
+                    }
+                }
+    
+            }
+
+            button{
+                height: 20%;
+            }
+
+        }
+
+
+        .custom{
+            margin-top: 10px;
+            
+            h3{
+                color: $fourth;
+            }
+            
+            .input-group{
+                @include flex(row, wrap);
+
+                label{
+                    color: $fourth;
+                }
+            }
+
+            .color{
+                border-radius: $borderRadius;
+                box-shadow: 0 2px 10px $secondaryColor;
+                padding: 5px;
+                margin: 5px 0;
+            }
+
+            #save-colors{
+                width: 100%;
+                height: 40px;
+            }
+        }
+    }
+    // ./Settings.html
+
+
+
+    // calendar.html
+    
+    .calendar{
+        padding: 10px;
+        background-color: $secondaryColor;
+        border-radius: $borderRadius;
+        min-width: 400px;
+        width: 100%;
+        @include flex(column);
+        align-items: initial;
+        
+        .info{
+            margin: 5px 0;
+            box-shadow: 0 0 10px $primaryColor;
+            height: 20vh;
+            background-color: $primaryColor;
+            @include flex(column);
+            text-align: center;
+            form{
+                flex: 10%;
+                width: 100%;
+                select{
+                    width: calc(90% / 2);
+                    background: $primaryColor;
+                    color: $tertiaryColor;
+                    border-radius: $borderRadius;
+                    border-color: $tertiaryColor;
+                    padding: 5px;
+                    margin: 3px;
+                }
+            }
+
+            .title{
+                flex: 90%;
+                width: 100%;
+                padding: 2px 0;
+
+                @include flex(row);
+                flex-direction: row-reverse;
+                span,
+                label{
+                    font-size: 3rem;
+                    margin: 0 10px;
+                    width: calc(100% / 3);
+                    position: relative;
+                    cursor: pointer;
+                    font-weight: bold;
+                    background-color: $tertiaryColor;
+                    color: $primaryColor;
+                }
+            }
+            
+        }
+
+        .days{
+            margin: 10px 0;
+            .week-days{
+                width: 100%;
+                text-transform: uppercase;
+                text-align: center;
+                @include flex(row, wrap);
+                span{
+                    margin: 0 2px;
+                    padding: 10px 0;
+                    flex: calc(100% / 7 - (2 * 2px));
+                    position: relative;
+                    cursor: pointer;
+                    border-left: 2px solid $tertiaryColor;
+                    border-right: 2px solid $tertiaryColor;
+    
+
+                    color: $fourth;
+
+                    &::before,
+                    &::after{
+                        content: "";
+                        position: absolute;
+                        background-color: $tertiaryColor;
+                        width: 0;
+                        height: 2px;
+                        transition: $transition;
+                    }
+    
+                    &::before{
+                        left: 0;
+                        bottom: 0;
+                    }
+    
+    
+                    &::after{
+                        right: 0;
+                        top: 0;
+                    }
+    
+                    &:hover{
+                        background-color: $fourth;
+                        color: $tertiaryColor;
+                        &::before,
+                        &::after{
+                            width: 100%;
+                        }
+                    }
+    
+                    
+                }
+            }
+    
+            .month-days{
+                width: 100%;
+                text-align: center;
+                display: grid; 
+                grid-template-columns: repeat(7, 1fr); 
+                grid-template-rows: repeat(5, 1fr); 
+                gap: 5px; 
+                span{
+                    color: $fourth;
+                    width: 40px;
+                    background-color: $primaryColor;
+                    border-radius: 50%;
+                    padding: 10px;
+                    margin: auto;
+    
+                    cursor: pointer;
+                    transition: $transition;
+                    &:hover{
+                        color: $tertiaryColor;
+                        background-color: $primaryColor;
+                    }
+                }
+    
+            }
+        
+        
+            .today{
+                background-color: $tertiaryColor !important;
+                color: $secondaryColor !important;
+                &:hover{
+                    color: $primaryColor !important;
+                }
+            }
+        }
+
+    }
+
+    // ./calendar.html
+}
