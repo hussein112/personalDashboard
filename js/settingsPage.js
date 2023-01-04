@@ -4,9 +4,10 @@ import { renderColors } from "./settings.js";
 const customColors = document.querySelectorAll("input[type='color']");
 const colorsCombination = document.querySelector(".combination");
 const resetDefaults = document.getElementById("default");
-const defaultColors = ["#f1f5f9", "#ffffff", "rgb(60, 138, 255)", "#292929"];
+const defaultColors = ["#f1f5f9", "#ffffff", "#3c8aff", "#292929"];
 
-const currentColors = [
+
+window.currentColors = [
     localStorage.getItem("--primary"),
     localStorage.getItem("--secondary"),
     localStorage.getItem("--tertiary"),
@@ -15,12 +16,8 @@ const currentColors = [
 
 
 
-
-
 window.onload = function(){
     renderColors();
-
-
     setColors();
 
     colorsCombination.addEventListener("click", () =>{
@@ -29,13 +26,8 @@ window.onload = function(){
     });
     
     
-    resetDefaults.addEventListener("click", (e) => {
-        e.stopPropagation();
-        localStorage.setItem("--primary", defaultColors[0]);
-        localStorage.setItem("--secondary", defaultColors[1]);
-        localStorage.setItem("--tertiary", defaultColors[2]);
-        localStorage.setItem("--fourth", defaultColors[3]);
-        renderColors();
+    resetDefaults.addEventListener("click", () => {
+        updateColorStorage(defaultColors);
     });
 }
 
@@ -68,7 +60,14 @@ function updateColorStorage(colors){
     localStorage.setItem("--secondary", colors[1]);
     localStorage.setItem("--tertiary", colors[2]);
     localStorage.setItem("--fourth", colors[3]);
+    window.currentColors = [
+        localStorage.getItem("--primary"),
+        localStorage.getItem("--secondary"),
+        localStorage.getItem("--tertiary"),
+        localStorage.getItem("--fourth"),
+    ];
     renderColors();
+    setColors();
 }
 
 
@@ -104,7 +103,7 @@ saveColors.addEventListener("click", () => {
 function setColors(){
     let _customColors = Array.from(customColors); 
     for(let i = 0; i < _customColors.length; i++){
-        _customColors[i].value = currentColors[i];
+        _customColors[i].value = window.currentColors[i];
     }
 }
 
