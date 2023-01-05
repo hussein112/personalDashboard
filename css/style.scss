@@ -256,71 +256,71 @@ main{
             background: $secondaryColor;
             border-radius: $borderRadius;
             min-height: 430px;
-            .container{
-                @include flex(row, wrap);
-                // width: 100%;
+            @include flex(row, wrap);
 
-                .today-progress-chart{
-                    flex: 50%;
-                    @include flex(column);
-                    color: $fourth;
-                    
+            h2{
+                width: 100%;
+            }
 
-                    .progress{
-                        position: relative;
-                        height: 20px;
-                        width: 100%;
-                        .value,
-                        .bg{
-                            position: absolute;
-                            height: 100%;
-                        }
-    
-                        .bg{
-                            width: 100%;
-                            background-color: $primaryColor;
-                            opacity: .7;
-                        }
-    
-                        .value{
-                            background-color: $tertiaryColor;
-                            z-index: 2;
-                            left: 0;
-                            transition: $transition + 1;
-                        }
-    
-    
-                        
-                    }
-                    .label{
-                        color: $fourth;
-                    }
+            .today-progress-chart{
+                flex: 50%;
+                @include flex(column);
+                color: $fourth;
 
-                    .percent{
-                        color: $fourth;
-                        transition: $transition + 2;
-                        animation: pop ($transition) ease-in forwards 2s;
-                        animation-play-state: paused;
-                    }
-                    
-                    @keyframes pop {
-                        0%{
-                            scale: 3;
-                        }
-
-                        100%{
-                            scale: 1;
-                        }
-                    }
-
-                }
-    
-                .average-today-progress-chart{
-                    flex: 50%;
+                .progress{
+                    position: relative;
+                    height: 20px;
                     width: 100%;
-                    height: 100%;
+                    .value,
+                    .bg{
+                        position: absolute;
+                        height: 100%;
+                    }
+
+                    .bg{
+                        width: 100%;
+                        background-color: $primaryColor;
+                        opacity: .7;
+                    }
+
+                    .value{
+                        background-color: $tertiaryColor;
+                        z-index: 2;
+                        left: 0;
+                        transition: $transition + 1;
+                    }
+
+
+                    
+                }
+                .label{
                     color: $fourth;
                 }
+
+                .percent{
+                    color: $fourth;
+                    transition: $transition + 2;
+                    animation: pop ($transition) ease-in forwards 2s;
+                    animation-play-state: paused;
+                }
+                
+                @keyframes pop {
+                    0%{
+                        scale: 3;
+                    }
+
+                    100%{
+                        scale: 1;
+                    }
+                }
+
+            }
+
+            .average-today-progress-chart{
+                flex: 50%;
+                width: 100%;
+                height: 100%;
+                color: $fourth;
             }
             
         }
